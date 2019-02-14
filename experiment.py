@@ -1,4 +1,5 @@
 from coin import Coin
+from die import Die
 
 
 class Experiment:
@@ -15,4 +16,9 @@ class Experiment:
     def flip_coin_with_pattern_n_times(self, pattern, n, flips, bias=0.5):
         c = Coin(bias)
         experiments = [[c.flip() for f in range(flips)] == pattern for e in range(n)]
+        return sum(experiments) / n
+
+    def roll_die_with_pattern_n_times(self, patterns, n, rolls, bias=(1 / 6, 1 / 6, 1 / 6, 1 / 6, 1 / 6, 1 / 6)):
+        d = Die(bias)
+        experiments = [sum((d.roll() in p for p in patterns)) == len(patterns) for e in range(n)]
         return sum(experiments) / n
