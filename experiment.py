@@ -12,7 +12,7 @@ class Experiment:
         experiments = [sum([c.flip(), c.flip()]) == 2 for _ in range(n)]
         return sum(experiments) / n
 
-    def flip_coin_with_pattern_n_times(self, pattern, n, flips):
-        c = Coin()
+    def flip_coin_with_pattern_n_times(self, pattern, n, flips, bias=0.5):
+        c = Coin(bias)
         experiments = [[c.flip() for f in range(flips)] == pattern for e in range(n)]
         return sum(experiments) / n

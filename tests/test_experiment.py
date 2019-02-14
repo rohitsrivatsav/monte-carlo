@@ -18,3 +18,9 @@ def test_probability_of_ththh():
     e = Experiment()
     p = e.flip_coin_with_pattern_n_times([0, 1, 0, 1, 1], 1_000_000, 5)
     assert p == approx((0.5)**5, rel=0.01)
+
+
+def test_probability_of_hhhh():
+    e = Experiment()
+    p = e.flip_coin_with_pattern_n_times([1, 1, 1, 1], 1_000_000, 4, 0.3)
+    assert p == approx((0.3)**4, rel=0.01)
