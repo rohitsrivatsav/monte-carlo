@@ -42,7 +42,7 @@ def test_probability_of_dice_odd34l3():
 def test_probability_of_box_draws():
     e = Experiment()
     patterns = ['red', 'green', 'yellow', 'red', 'red']
-    p = e.draw_marbles_from_box(patterns, 5, 1000000)
+    p = e.draw_marbles_from_box(patterns, 5, 10000000)
     assert p == approx(0.0095, rel=0.01)
 
 # def test_probability_of_hhhh():
