@@ -13,14 +13,10 @@ class Box:
             self.pick = choice(self.box)
             self.interim = self.box.copy()
             self.interim.pop(self.box.index(self.pick))
-            print(self.pick)
             return self.pick
         else:
-            # r = randint(1, len(self.interim))
-            # print(self.interim)
             self.pick = choice(self.interim)
             self.interim.pop(self.interim.index(self.pick))
-            print(self.pick)
             return self.pick
 
         # if r <= 4:
