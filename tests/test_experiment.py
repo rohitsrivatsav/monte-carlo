@@ -35,9 +35,15 @@ def test_probability_of_THTHH():
 def test_probability_of_dice_odd34l3():
     e = Experiment()
     patterns = [[1, 3, 4, 1], [1, 3, 4, 2], [3, 3, 4, 1], [3, 3, 4, 2], [5, 3, 4, 1], [5, 3, 4, 2]]
-    p = e.roll_dice_4x_times(patterns, 1000000, 4)
+    p = e.roll_dice_4x_times(patterns, 1000, 4)
     assert p == approx(0.45 * 0.05 * 0.3 * 0.35, rel=0.01)
 
+
+def test_probability_of_box_draws():
+    e = Experiment()
+    patterns = ['red', 'green', 'yellow', 'red', 'red']
+    p = e.draw_marbles_from_box(patterns, 5, 1000000)
+    assert p == approx(0.0095, rel=0.01)
 
 # def test_probability_of_hhhh():
 #     e = Experiment()

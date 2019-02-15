@@ -1,5 +1,6 @@
 from coin import Coin
 from dice import Dice
+from box import Box
 
 
 class Experiment:
@@ -41,3 +42,10 @@ class Experiment:
         d = Dice()
         experiments = [[d.roll() for f in range(rolls)] in pattern for e in range(n)]
         return sum(experiments) / n
+
+    def draw_marbles_from_box(self, pattern, draws, simulations):
+        b = Box()
+        # sequence_of_colors = ['red', 'green', 'yellow', 'red', 'red']
+        experiments = [[b.drawmarble(d) for d in range(draws)] == pattern for d in range(simulations)]
+        # probability = b.boxdict[b.pick] / b.total
+        return sum(experiments) / simulations
